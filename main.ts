@@ -1,3 +1,26 @@
+//Vars
+let LoopState = 0
+let HeartLoop2Speed = 0
+let HeartLoop1Speed = 0
+HeartLoop1Speed = 5
+HeartLoop2Speed = 0.01
+LoopState = 1
+//start
+basic.showString("LOVE YOU")
+// state check
+basic.forever(function () {
+    if (LoopState == 1) {
+        PlayHeartLoop()
+    } else if (LoopState == 2) {
+        PlayHeartLoop2()
+    } else if (LoopState == 3){
+        ButtonASequence()
+    }
+})
+//input
+input.buttonIsPressed(Button.A);{
+    LoopState = 3;
+}
 // HeartLoops
 function PlayHeartLoop2 () {
     basic.showLeds(`
@@ -129,9 +152,6 @@ function PlayHeartLoop2 () {
         `)
     LoopState = 1
 }
-input.onButtonPressed(Button.A, function () {
-    led.plotBrightness(0, 0, 50)
-})
 function PlayHeartLoop () {
     basic.showLeds(`
         . . . . .
@@ -230,18 +250,12 @@ function PlayHeartLoop () {
         `)
     LoopState = 2
 }
-let LoopState = 0
-let HeartLoop2Speed = 0
-let HeartLoop1Speed = 0
-HeartLoop1Speed = 5
-HeartLoop2Speed = 0.01
-LoopState = 1
-basic.showString("LOVE YOU")
-// state check
-basic.forever(function () {
-    if (LoopState == 1) {
-        PlayHeartLoop()
-    } else if (LoopState == 2) {
-        PlayHeartLoop2()
-    }
-})
+function ButtonASequence(){
+basic.showLeds(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . . .
+`)
+}
