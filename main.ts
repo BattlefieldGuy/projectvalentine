@@ -2,11 +2,13 @@
 let LoopState = 0
 let HeartLoop1Speed = 5
 let HeartLoop2Speed = 0.01
+let ButtonASequenceSpeed = 2
 
+//start
 LoopState = 0
 HeartLoop1Speed = 5
 HeartLoop2Speed = 0.01
-//start
+ButtonASequenceSpeed = 2
 basic.showString("LOVE YOU")
 // state check
 basic.forever(function () {
@@ -150,7 +152,9 @@ function PlayHeartLoop2() {
         . # # # .
         . . # . .
         `)
-    LoopState = 0
+    if (LoopState == 1){
+        LoopState = 0
+    }
 }
 function PlayHeartLoop() {
     basic.showLeds(`
@@ -248,15 +252,69 @@ function PlayHeartLoop() {
         . # . # .
         . . # . .
         `)
+    if (LoopState == 0){
     LoopState = 1
+     }
 }
 //button sequences
 function ButtonASequence() {
+    basic.pause(ButtonASequenceSpeed)
+    basic.showString("Matthew")
     basic.showLeds(`
-    . . . . .
-    . . . . .
+    . # . # .
+    # . # . #
+    # . . . #
+    . # . # .
     . . # . .
-    . . . . .
-    . . . . .
-`)
+    `)
+    basic.pause(ButtonASequenceSpeed)
+    basic.showLeds(`
+    . # . # . 
+    # # # # # 
+    # # # # # 
+    . # # # . 
+    . . # . . 
+    `)
+    basic.pause(ButtonASequenceSpeed)
+    basic.showLeds(`
+    . # . # . 
+    # . # . # 
+    # . . . # 
+    . # . # . 
+    . . # . .
+    `)
+    basic.pause(ButtonASequenceSpeed)
+    basic.showLeds(`
+    . # . # . 
+    # # # # # 
+    # # # # # 
+    . # # # . 
+    . . # . . 
+    `)
+    basic.pause(ButtonASequenceSpeed)
+    basic.showLeds(`
+    . # . # . 
+    # . # . # 
+    # . . . # 
+    . # . # . 
+    . . # . .
+    `)
+    basic.pause(ButtonASequenceSpeed)
+    basic.showLeds(`
+    . # . # . 
+    # # # # # 
+    # # # # # 
+    . # # # . 
+    . . # . . 
+    `)
+    basic.pause(ButtonASequenceSpeed)
+    basic.showLeds(`
+    . # . # . 
+    # . # . # 
+    # . . . # 
+    . # . # . 
+    . . # . .
+    `)
+    basic.showString("Luna")
+    LoopState = 0
 }
